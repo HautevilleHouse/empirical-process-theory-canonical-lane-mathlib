@@ -3,25 +3,23 @@ import canonicalLaneMathlib.AdmissibleClass
 namespace HautevilleHouse
 namespace EmpiricalProcessTheoryCanonicalLaneLean
 
-structure EmpiricalProcessAdmittedObject where
-  functionClass : Type
-  sampleSpace : Type
-  distribution : Type
-  uniformEntropyFinite : Prop
-  donskerProperty : Prop
-  conclusion : uniformEntropyFinite → donskerProperty
+structure EmpiricalAdmittedObject where
+  functionClass : Type u
+  domain : Type v
+  probabilitySpace : Type w
+  measurableFunctions : Prop
+  finiteDimension : Nat
+  vcDimension : Nat
+  vcDimensionBound : vcDimension ≤ finiteDimension
 
 structure AdmissibleClass where
-  object : EmpiricalProcessAdmittedObject
+  object : EmpiricalAdmittedObject
   endpointSatisfied : Prop
   remainderRecorded : Prop
   gateWitness : endpointSatisfied ∨ remainderRecorded
 
 def admittedClosure (A : AdmissibleClass) : Prop :=
-  EmpiricalProcessWitnessClosed A.object ∧ (A.endpointSatisfied ∨ A.remainderRecorded)
-
-def EmpiricalProcessWitnessClosed (O : EmpiricalProcessAdmittedObject) : Prop :=
-  O.donskerProperty
+  EmpiricalWitnessClosed A.object ∧ (A.endpointSatisfied ∨ A.remainderRecorded)
 
 end EmpiricalProcessTheoryCanonicalLaneLean
 end HautevilleHouse

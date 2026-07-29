@@ -1,4 +1,4 @@
-import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.EmpiricalProcessTheoryCanonicalLaneLean.BridgeLemmas
 
 namespace HautevilleHouse
 namespace EmpiricalProcessTheoryCanonicalLaneLean
