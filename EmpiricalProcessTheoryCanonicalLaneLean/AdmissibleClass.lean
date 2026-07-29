@@ -4,11 +4,12 @@ namespace HautevilleHouse
 namespace EmpiricalProcessTheoryCanonicalLaneLean
 
 structure EmpiricalProcessAdmittedObject where
-  functionClass : Type u
-  metric : Type v
-  entropyNumbers : Prop
-  uniformLaw : Prop
-  conclusion : uniformLaw
+  functionClass : Type
+  sampleSpace : Type
+  distribution : Type
+  uniformEntropyFinite : Prop
+  donskerProperty : Prop
+  conclusion : uniformEntropyFinite → donskerProperty
 
 structure AdmissibleClass where
   object : EmpiricalProcessAdmittedObject
@@ -17,7 +18,10 @@ structure AdmissibleClass where
   gateWitness : endpointSatisfied ∨ remainderRecorded
 
 def admittedClosure (A : AdmissibleClass) : Prop :=
-  A.object.uniformLaw ∧ (A.endpointSatisfied ∨ A.remainderRecorded)
+  EmpiricalProcessWitnessClosed A.object ∧ (A.endpointSatisfied ∨ A.remainderRecorded)
+
+def EmpiricalProcessWitnessClosed (O : EmpiricalProcessAdmittedObject) : Prop :=
+  O.donskerProperty
 
 end EmpiricalProcessTheoryCanonicalLaneLean
 end HautevilleHouse
