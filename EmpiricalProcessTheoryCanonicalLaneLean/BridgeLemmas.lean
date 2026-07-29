@@ -4,11 +4,18 @@ namespace HautevilleHouse
 namespace EmpiricalProcessTheoryCanonicalLaneLean
 
 def bridgeClosed (A : AdmissibleClass) : Prop :=
-  A.object.uniformLaw
+  A.endpointSatisfied
 
 theorem bridge_from_admissible_class (A : AdmissibleClass) :
     bridgeClosed A := by
-  exact A.object.conclusion
+  exact A.endpointSatisfied
+
+def gateClosed (A : AdmissibleClass) : Prop :=
+  A.endpointSatisfied ∨ A.remainderRecorded
+
+theorem gate_from_admissible_class (A : AdmissibleClass) :
+    gateClosed A := by
+  exact A.gateWitness
 
 end EmpiricalProcessTheoryCanonicalLaneLean
 end HautevilleHouse
