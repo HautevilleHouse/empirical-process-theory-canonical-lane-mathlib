@@ -1,13 +1,13 @@
-import EmpiricalProcessTheoryCanonicalLaneLean.GateLemmas
+import canonicalLaneMathlib.AdmissibleClass
 
 namespace HautevilleHouse
 namespace EmpiricalProcessTheoryCanonicalLaneLean
 
-def ConstrainedTheoremClosure (A : AdmissibleClass) : Prop :=
+def ConstrainedEmpiricalProcessClosure (A : AdmissibleClass) : Prop :=
   bridgeClosed A ∧ gateClosed A
 
-theorem constrained_theorem_closure (A : AdmissibleClass) :
-    ConstrainedTheoremClosure A := by
+theorem constrained_empirical_process_endgame (A : AdmissibleClass) :
+    ConstrainedEmpiricalProcessClosure A := by
   exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
 
 end EmpiricalProcessTheoryCanonicalLaneLean
